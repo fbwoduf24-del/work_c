@@ -1,0 +1,40 @@
+# Project: Project2
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = aaa.o bbb.o ccc.o ddd.o txt.o
+LINKOBJ  = aaa.o bbb.o ccc.o ddd.o txt.o
+LIBS     = -L"D:/Program/Dev-Cpp/MinGW64/lib" -L"D:/Program/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Program/Dev-Cpp/MinGW64/include" -I"D:/Program/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Program/Dev-Cpp/MinGW64/include" -I"D:/Program/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Program/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Program/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Project2.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+aaa.o: aaa.c
+	$(CC) -c aaa.c -o aaa.o $(CFLAGS)
+
+bbb.o: bbb.c
+	$(CC) -c bbb.c -o bbb.o $(CFLAGS)
+
+ccc.o: ccc.c
+	$(CC) -c ccc.c -o ccc.o $(CFLAGS)
+
+ddd.o: ddd.c
+	$(CC) -c ddd.c -o ddd.o $(CFLAGS)
+
+txt.o: txt.c
+	$(CC) -c txt.c -o txt.o $(CFLAGS)
